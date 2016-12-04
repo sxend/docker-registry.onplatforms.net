@@ -1,0 +1,25 @@
+version: 0.1
+log:
+  level: info
+  formatter: json
+
+storage:
+  s3:
+    region: ap-northeast-1
+    bucket: docker-registry.onplatforms.net
+    rootdirectory: /registry/
+  maintenance:
+    uploadingpurging:
+      enabled: true
+      age: 1440h
+
+http:
+  addr: 0.0.0.0:5000
+  host: https://docker-registry.onplatforms.net
+  debug:
+    addr: 0.0.0.0:5001
+  secret: <HTTP_SECRET>
+auth:
+  htpasswd:
+    realm: registry-authentication
+    path: /etc/docker/registry/htpasswd
