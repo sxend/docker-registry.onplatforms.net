@@ -13,7 +13,7 @@ dependencies:
     - echo ${APP_VERSION}
   override:
     - sed -i "s/<HTTP_SECRET>/${HTTP_SECRET}/g" config.yml
-    - sed -i "s/<HTPASSWD>/${HTPASSWD}/g" htpasswd
+    - echo ${HTPASSWD} > htpasswd
     - zip /tmp/application.zip --recurse-paths Dockerfile config.yml .ebextensions htpasswd
 deployment:
   publish:
