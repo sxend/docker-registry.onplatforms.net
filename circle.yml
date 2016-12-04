@@ -16,7 +16,8 @@ dependencies:
     - echo ${HTPASSWD} > htpasswd
     - zip /tmp/application.zip --recurse-paths Dockerfile config.yml .ebextensions htpasswd
 test:
-  override: echo notest
+  override:
+    - echo notest
 deployment:
   publish:
     branch: master
